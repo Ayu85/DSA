@@ -13,8 +13,9 @@ public class reverseArray {
 
     public static void main(String[] args) {
         int[] arr = { 2, 6, 4, 5, 3, 4, 5 };
-        revArray(arr, 0, arr.length-1);
-        for (int x : arr)
+        int[] arr2={1};
+        revArray(arr2, 0, arr2.length-1);
+        for (int x : arr2)
             System.out.print(x + " ");
     }
 }
