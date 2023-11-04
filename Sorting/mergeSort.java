@@ -39,7 +39,9 @@ public class mergeSort {
             mergeArray(arr, low, high, mid);
         }
     }
+
     public static void main(String[] args) {
-        
+        int[] arr = { 4, 2, 8, 7, 6, 5, 1, 3 };
+        divideArray(arr, 0, arr.length);
     }
 }
