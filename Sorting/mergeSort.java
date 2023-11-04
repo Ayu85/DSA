@@ -2,6 +2,7 @@ public class mergeSort {
     static void mergeArray(int[] arr, int low, int mid, int high) {
         int left = low;
         int right = mid + 1;
+        //to create the new temp array (divided array)
         int[] temp = new int[high - low + 1];
         int j = 0;
         while (left <= mid && right <= high) {
@@ -26,12 +27,18 @@ public class mergeSort {
             right++;
             j++;
         }
+        // copying the new array to original one
         int x = low;
         for (int z = 0; z < temp.length; z++) {
             arr[x] = temp[z];
             x++;
         }
 
+    }
+
+    static void printArray(int[] arr) {
+        for (int x : arr)
+            System.out.print(x + " ");
     }
 
     static void divideArray(int[] arr, int low, int high) {
@@ -47,7 +54,8 @@ public class mergeSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = { 4, 2, 8, 7, 6, 5, 1, 3 };
-        divideArray(arr, 0, arr.length-1);
+        int[] arr = { 4, 2, 8, 7, 6, 5, 1, 3,0,1,-2 };
+        divideArray(arr, 0, arr.length - 1);
+        printArray(arr);
     }
 }
