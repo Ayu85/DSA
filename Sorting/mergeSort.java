@@ -1,20 +1,20 @@
 public class mergeSort {
-    static void mergeArray(int[] arr, int low, int high, int mid) {
+    static void mergeArray(int[] arr, int low, int mid, int high) {
         int left = low;
         int right = mid + 1;
-        int[] temp = new int[arr.length];
+        int[] temp = new int[high - low + 1];
         int j = 0;
         while (left <= mid && right <= high) {
-            if (arr[left] < arr[right]) {
+            if (arr[left] <= arr[right]) {
                 temp[j] = arr[left];
                 left++;
-                j++;
 
             } else {
                 temp[j] = arr[right];
                 right++;
-                j++;
+
             }
+            j++;
         }
         while (left <= mid) {
             temp[j] = arr[left];
@@ -26,22 +26,28 @@ public class mergeSort {
             right++;
             j++;
         }
+        int x = low;
+        for (int z = 0; z < temp.length; z++) {
+            arr[x] = temp[z];
+            x++;
+        }
 
-        for (int x : temp)
-            System.out.print(x + " ");
     }
 
     static void divideArray(int[] arr, int low, int high) {
-        while (low <= high) {
-            int mid = (low + high) / 2;
+        int mid = (low + high) / 2;
+        if (low >= high)
+            return;
+        else {
             divideArray(arr, 0, mid);
             divideArray(arr, mid + 1, high);
-            mergeArray(arr, low, high, mid);
+            mergeArray(arr, low, mid, high);
         }
+
     }
 
     public static void main(String[] args) {
         int[] arr = { 4, 2, 8, 7, 6, 5, 1, 3 };
-        divideArray(arr, 0, arr.length);
+        divideArray(arr, 0, arr.length-1);
     }
 }
