@@ -11,7 +11,7 @@ public class findMissing {
     }
 
     public static void main(String[] args) {
-        int[] arr = { 1, 2, 4, 5, 6 };
-        System.out.println(getMissing(arr, arr.length));
+        int[] arr = { 1, 2, 3, 5 };
+        System.out.println(getMissing(arr, 5));
     }
 }
